@@ -6,14 +6,10 @@ var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 var numeric = "0123456789"
 var specialChar = "!@#$%^&*()"
 var possibleChars = ""
-//var randomNumber = function() {
-//  var value = Math.floor(Math.random());
-//  return value;
-//};
 
 // Write password to the #password input
 function writePassword() {
-//  var password = generatePassword();
+  //var password = generatePassword();
   var passwordText = document.querySelector("#password");
   var passwordLength = prompt("Enter Password Length between 8 and 128 characters.");
    if (passwordLength < 8) {
@@ -32,13 +28,14 @@ function writePassword() {
   if (numericSelected) {
     possibleChars += numeric;
   }
-  if (window.confirm("Would you like to include special characters?")) {
-    return specialChar;
+  var specialCharSelected = (window.confirm("Would you like to include special characters?"));
+  if (specialCharSelected) {
+    possibleChars += specialChar;
   }
-  console.log(lowercase)
-  console.log(uppercase)
-  console.log(numeric)
-  console.log(specialChar)
+  for (var i = 0; i <= passwordLength; i++) {
+    var randomNumber = Math.floor(Math.random() * possibleChars.length);
+    password += possibleChars.substring(randomNumber, randomNumber + 1)
+   }
   passwordText.value = password;
 }
 
