@@ -9,7 +9,7 @@ var possibleChars = ""
 
 // Write password to the #password input
 function writePassword() {
-  //var password = generatePassword();
+  var password = ""
   var passwordText = document.querySelector("#password");
   var passwordLength = prompt("Enter Password Length between 8 and 128 characters.");
    if (passwordLength < 8) {
